@@ -1,0 +1,34 @@
+{
+  "name": "@wattanx/vue-color-picker",
+  "version": "0.0.1",
+  "description": "color picker for vue.",
+  "main": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tsup": "^6.7.0",
+    "vite": "^4.2.1",
+    "vitest": "^0.29.7"
+  },
+  "dependencies": {
+    "vue-demi": "^0.13.11"
+  }
+}

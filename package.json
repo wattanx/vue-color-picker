@@ -1,0 +1,36 @@
+{
+  "name": "vue-color-picker",
+  "version": "0.0.1",
+  "private": true,
+  "description": "color picker for vue.",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm --filter './packages/**' build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wattanx/vue-color-picker.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "wattanx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wattanx/vue-color-picker/issues"
+  },
+  "homepage": "https://github.com/wattanx/vue-color-picker#readme",
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "vite": "^4.2.1",
+    "vitest": "^0.29.7"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "vue3",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^5.0.2",
+    "vite": "^4.2.1",
+    "vitest": "^0.29.7"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "4.1.0",
+    "@wattanx/vue-color-picker": "workspace:*",
+    "vue": "^3.2.47"
+  }
+}
