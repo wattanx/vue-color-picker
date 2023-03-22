@@ -1,16 +1,3 @@
-# Vue Color Picker
-
-Provides a headless color picker for Vue.
-
-Support Vue 2 and Vue 3.
-
-## Usage
-
-with tailwind.css
-
-Example.vue
-
-```vue
 <script setup lang="ts">
 import { ColorPickerCanvas, useColorPicker } from "@wattanx/vue-color-picker";
 
@@ -75,8 +62,8 @@ const {
   position: relative;
   margin-top: 15px;
   height: 150px;
-  background-image: linear-gradient(transparent, black), linear-gradient(to
-        right, white, transparent);
+  background-image: linear-gradient(transparent, black),
+    linear-gradient(to right, white, transparent);
   user-select: none;
 }
 .color-picker-saturation_cursor {
@@ -120,4 +107,3 @@ const {
   transform: translate(-10px, -4px);
 }
 </style>
-```

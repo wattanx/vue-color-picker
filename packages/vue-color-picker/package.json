@@ -1,6 +1,6 @@
 {
   "name": "@wattanx/vue-color-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "color picker for vue.",
   "main": "./dist/index.mjs",
   "exports": {

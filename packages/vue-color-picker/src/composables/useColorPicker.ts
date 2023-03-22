@@ -15,12 +15,19 @@ export type UseColorPicker = {
    * @default 150
    */
   height?: number;
+
+  /**
+   * Direction of hue bars.
+   * @default 'horizontal'
+   */
+  direction?: "horizontal" | "vertical";
 };
 
 export const useColorPicker = ({
   initialColor = "#FFFFFF",
   width = 214,
   height = 150,
+  direction = "horizontal",
 }: UseColorPicker) => {
   const selfColor = ref(transformColor("hex", initialColor));
   const inputColor = ref(initialColor);
@@ -30,9 +37,12 @@ export const useColorPicker = ({
     y: ((100 - selfColor.value.hsv.v) / 100) * width,
   }));
 
-  const huePosition = computed(() => ({
-    x: (selfColor.value.hsv.h / 360) * width,
-  }));
+  const huePosition = computed(() => {
+    return {
+      x: (selfColor.value.hsv.h / 360) * width,
+      y: (selfColor.value.hsv.h / 360) * height,
+    };
+  });
 
   const onSetHex = (e: MouseEvent) => {
     const hex = (e.currentTarget as HTMLInputElement).value;
@@ -55,8 +65,10 @@ export const useColorPicker = ({
     inputColor.value = newColor.hex;
   };
 
-  const onMoveHue = ({ x }: Position) => {
-    const newHsv = { ...selfColor.value.hsv, h: (x / width) * 360 };
+  const onMoveHue = ({ x, y }: Position) => {
+    const dir = direction === "horizontal" ? width : height;
+    const position = direction === "horizontal" ? x : y;
+    const newHsv = { ...selfColor.value.hsv, h: (position / dir) * 360 };
     const newColor = transformColor("hsv", newHsv);
 
     selfColor.value = newColor;

@@ -1,18 +1,11 @@
-# Vue Color Picker
-
-Provides a headless color picker for Vue.
-
-Support Vue 2 and Vue 3.
-
-## Usage
-
-with tailwind.css
-
-Example.vue
-
-```vue
 <script setup lang="ts">
-import { ColorPickerCanvas, useColorPicker } from "@wattanx/vue-color-picker";
+import {
+  ColorPickerHue,
+  ColorPickerHueCursor,
+  ColorPickerSaturation,
+  ColorPickerSaturationCursor,
+  useColorPicker,
+} from "@wattanx/vue-color-picker";
 
 const {
   onMoveHue,
@@ -24,11 +17,12 @@ const {
   initialColor: "#FFFFFF",
   width: 160,
   height: 160,
+  direction: "vertical",
 });
 </script>
 <template>
   <div class="container mt-4 flex flex-col p-4 space-y-4">
-    <p>Horizontal Hue Bar</p>
+    <p>Vertical Hue Bar</p>
     <div class="flex space-x-2">
       <label for="hex">Hex</label>
       <input
@@ -38,31 +32,28 @@ const {
         type="text"
       />
     </div>
-    <div class="w-[160px] flex flex-col">
-      <ColorPickerCanvas
-        class="color-picker-saturation"
-        :style="{ backgroundColor: `hsl(${selfColor.hsv.h}, 100%, 50%)` }"
-        @changePosition="onMoveSaturation"
-        ><div
-          class="color-picker-saturation_cursor"
-          :style="{
-            backgroundColor: selfColor.hex,
-            left: `${saturationPosition.x}px`,
-            top: `${saturationPosition.y}px`,
-          }"
-        ></div>
-      </ColorPickerCanvas>
-      <ColorPickerCanvas class="color-picker-hue" @changePosition="onMoveHue">
-        <div
+    <div class="flex flex-row">
+      <div class="w-[160px]">
+        <ColorPickerSaturation
+          class="color-picker-saturation"
+          @moveSaturation="onMoveSaturation"
+          :hue="selfColor.hsv.h"
+          ><ColorPickerSaturationCursor
+            class="color-picker-saturation_cursor"
+            :saturationPosition="saturationPosition"
+            :hex="selfColor.hex"
+          ></ColorPickerSaturationCursor>
+        </ColorPickerSaturation>
+      </div>
+      <ColorPickerHue class="color-picker-hue" @moveHue="onMoveHue">
+        <ColorPickerHueCursor
           class="color-picker-hue_cursor"
-          :style="{
-            backgroundColor: `hsl(${selfColor.hsv.h}, 100%, 50%)`,
-            left: `${huePosition.x}px`,
-          }"
-        ></div>
-      </ColorPickerCanvas>
+          :hue="selfColor.hsv.h"
+          :direction="'vertical'"
+          :position="huePosition"
+        ></ColorPickerHueCursor>
+      </ColorPickerHue>
     </div>
-
     <div
       class="w-[160px] border-[1px] border-gray-300 h-5"
       :style="{ backgroundColor: selfColor.hex }"
@@ -75,8 +66,8 @@ const {
   position: relative;
   margin-top: 15px;
   height: 150px;
-  background-image: linear-gradient(transparent, black), linear-gradient(to
-        right, white, transparent);
+  background-image: linear-gradient(transparent, black),
+    linear-gradient(to right, white, transparent);
   user-select: none;
 }
 .color-picker-saturation_cursor {
@@ -91,12 +82,12 @@ const {
 }
 
 .color-picker-hue {
-  width: 100%;
+  width: 12px;
   position: relative;
   margin-top: 15px;
-  height: 12px;
+  height: 160px;
   background-image: linear-gradient(
-    to right,
+    to bottom,
     rgb(255, 0, 0),
     rgb(255, 255, 0),
     rgb(0, 255, 0),
@@ -107,6 +98,7 @@ const {
   );
   user-select: none;
   border-radius: 12px;
+  margin-left: 1rem;
 }
 
 .color-picker-hue_cursor {
@@ -118,6 +110,6 @@ const {
   box-shadow: #0003 0 0 0 0.5px;
   box-sizing: border-box;
   transform: translate(-10px, -4px);
+  left: 6px;
 }
 </style>
-```
