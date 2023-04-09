@@ -30,6 +30,7 @@
     "tailwindcss": "^3.2.7",
     "vite": "^4.2.1",
     "vitepress": "1.0.0-alpha.65",
-    "vitest": "^0.29.7"
+    "vitest": "^0.29.7",
+    "vue": "^3.2.47"
   }
 }
