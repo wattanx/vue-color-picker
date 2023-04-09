@@ -5,7 +5,10 @@
   "description": "color picker for vue.",
   "main": "index.js",
   "scripts": {
-    "build": "pnpm --filter './packages/**' build"
+    "build": "pnpm --filter './packages/**' build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "repository": {
     "type": "git",
@@ -20,17 +23,13 @@
     "url": "https://github.com/wattanx/vue-color-picker/issues"
   },
   "homepage": "https://github.com/wattanx/vue-color-picker#readme",
-  "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.1",
-    "vue": "^2.0.0 || >=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
-  },
   "devDependencies": {
+    "@wattanx/vue-color-picker": "workspace:*",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
     "vite": "^4.2.1",
+    "vitepress": "1.0.0-alpha.65",
     "vitest": "^0.29.7"
   }
 }
