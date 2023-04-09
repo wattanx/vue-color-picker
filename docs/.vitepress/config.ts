@@ -5,6 +5,36 @@ const pkg = require("../../packages/vue-color-picker/package.json");
 export default defineConfig({
   title: "Vue Color Picker",
   description: "Provides a headless color picker for Vue.",
+  head: [
+    [
+      "meta",
+      {
+        property: "og:title",
+        content: "Vue Color Picker",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content: "Provides a headless color picker for Vue.",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://vue-colorpicker.vercel.app/og-image.png",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+    ],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: nav(),
