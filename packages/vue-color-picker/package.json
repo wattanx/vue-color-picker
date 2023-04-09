@@ -1,7 +1,7 @@
 {
   "name": "@wattanx/vue-color-picker",
-  "version": "0.0.2",
-  "description": "color picker for vue.",
+  "version": "1.0.1",
+  "description": "Provides a headless Color Picker for Vue.",
   "main": "./dist/index.mjs",
   "exports": {
     ".": {
@@ -10,6 +10,9 @@
     }
   },
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "vitest run"
@@ -30,5 +33,13 @@
   },
   "dependencies": {
     "vue-demi": "^0.13.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wattanx/vue-color-picker.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "license": "MIT"
 }

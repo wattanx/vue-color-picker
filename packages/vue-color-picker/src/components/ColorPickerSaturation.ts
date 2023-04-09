@@ -1,4 +1,4 @@
-import { defineComponent, h } from "vue-demi";
+import { defineComponent, h, isVue3 } from "vue-demi";
 import { Position } from "../types/position";
 import { ColorPickerCanvas } from "./ColorPickerCanvas";
 
@@ -16,15 +16,22 @@ export const ColorPickerSaturation = defineComponent({
     const onChangePosition = (position: Position) => {
       emit("moveSaturation", position);
     };
+
+    const eventHandlers = isVue3
+      ? {
+          onChangePosition,
+        }
+      : {
+          on: {
+            changePosition: onChangePosition,
+          },
+        };
+
     return () =>
       h(
         ColorPickerCanvas,
         {
-          on: {
-            changePosition: onChangePosition,
-          },
-          // @ts-ignore
-          onChangePosition,
+          ...eventHandlers,
           style: {
             backgroundColor: `hsl(${props.hue}, 100%, 50%)`,
           },
