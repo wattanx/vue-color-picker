@@ -34,7 +34,7 @@ export const useColorPicker = ({
 
   const saturationPosition = computed(() => ({
     x: (selfColor.value.hsv.s / 100) * width,
-    y: ((100 - selfColor.value.hsv.v) / 100) * width,
+    y: ((100 - selfColor.value.hsv.v) / 100) * height,
   }));
 
   const huePosition = computed(() => {
