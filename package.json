@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "color picker for vue.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "pnpm --filter './packages/**' build",
