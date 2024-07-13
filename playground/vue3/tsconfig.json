@@ -9,7 +9,8 @@
     "skipLibCheck": true,
     "strict": true,
     "preserveValueImports": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "resolvePackageJsonExports": true
   },
   "exclude": ["node_modules"]
 }
