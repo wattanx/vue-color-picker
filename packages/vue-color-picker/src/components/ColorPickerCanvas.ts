@@ -1,5 +1,5 @@
-import { defineComponent, ref, h, isVue3 } from "vue-demi";
-import { Position } from "../types/position";
+import { defineComponent, ref, h } from "vue";
+import type { Position } from "../types/position";
 import { clamp } from "../utils";
 
 export const ColorPickerCanvas = defineComponent({
@@ -41,21 +41,11 @@ export const ColorPickerCanvas = defineComponent({
       document.addEventListener("mouseup", onMouseUp, false);
     };
 
-    const eventHandlers = isVue3
-      ? {
-          onMousedown,
-        }
-      : {
-          on: {
-            mousedown: onMousedown,
-          },
-        };
-
     return () =>
       h(
         "div",
         {
-          ...eventHandlers,
+          onMousedown,
           ref: divRef,
         },
         slots.default?.()
