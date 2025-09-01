@@ -15,7 +15,7 @@
     "vitest": "^0.29.7"
   },
   "dependencies": {
-    "@vitejs/plugin-vue2": "2.2.0",
+    "@vitejs/plugin-vue2": "2.3.3",
     "@wattanx/vue-color-picker": "workspace:*",
     "vue": "2.7.14"
   }
