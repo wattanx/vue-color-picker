@@ -9,15 +9,15 @@ outline: deep
 ::: code-group
 
 ```sh [npm]
-$ npm install -D @wattanx/vue-color-picker
+$ npm install @wattanx/vue-color-picker
 ```
 
 ```sh [pnpm]
-$ pnpm add -D @wattanx/vue-color-picker
+$ pnpm add @wattanx/vue-color-picker
 ```
 
 ```sh [yarn]
-$ yarn add -D @wattanx/vue-color-picker
+$ yarn add @wattanx/vue-color-picker
 ```
 
 :::

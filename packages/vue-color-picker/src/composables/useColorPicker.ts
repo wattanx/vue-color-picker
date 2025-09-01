@@ -1,6 +1,6 @@
-import type { Ref } from "vue-demi";
-import { ref, computed } from "vue-demi";
-import { Position } from "../types/position";
+import type { Ref } from "vue";
+import { ref, computed } from "vue";
+import type { Position } from "../types/position";
 import { transformColor } from "../utils";
 
 export type UseColorPicker = {

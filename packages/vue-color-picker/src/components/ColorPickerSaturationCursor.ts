@@ -1,4 +1,5 @@
-import { defineComponent, h, PropType } from "vue-demi";
+import { defineComponent, h } from "vue";
+import type { PropType } from "vue";
 import { Position } from "../types/position";
 
 export const ColorPickerSaturationCursor = defineComponent({
