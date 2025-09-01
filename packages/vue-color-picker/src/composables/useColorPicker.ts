@@ -1,3 +1,4 @@
+import type { Ref } from "vue-demi";
 import { ref, computed } from "vue-demi";
 import { Position } from "../types/position";
 import { transformColor } from "../utils";
@@ -23,12 +24,43 @@ export type UseColorPicker = {
   direction?: "horizontal" | "vertical";
 };
 
+type UseColorPickerReturnType = {
+  /**
+   * The current color object containing hex, rgb, and hsv values
+   */
+  selfColor: Ref<ReturnType<typeof transformColor>>;
+  /**
+   * The input field value for hex color
+   */
+  inputColor: Ref<string>;
+  /**
+   * The position of the saturation selector (x: saturation, y: brightness)
+   */
+  saturationPosition: Ref<Position>;
+  /**
+   * The position of the hue selector
+   */
+  huePosition: Ref<Position>;
+  /**
+   * Handler for hex color input changes
+   */
+  onSetHex: (e: MouseEvent) => void;
+  /**
+   * Handler for saturation/brightness selector movement
+   */
+  onMoveSaturation: (position: Position) => void;
+  /**
+   * Handler for hue selector movement
+   */
+  onMoveHue: (position: Position) => void;
+};
+
 export const useColorPicker = ({
   initialColor = "#FFFFFF",
   width = 214,
   height = 150,
   direction = "horizontal",
-}: UseColorPicker) => {
+}: UseColorPicker): UseColorPickerReturnType => {
   const selfColor = ref(transformColor("hex", initialColor));
   const inputColor = ref(initialColor);
 
