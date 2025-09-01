@@ -2,8 +2,6 @@
 
 Provides a headless color picker for Vue.
 
-Support Vue 2 and Vue 3.
-
 ## Documentation
 
 [https://vue-colorpicker.vercel.app/](https://vue-colorpicker.vercel.app/)
