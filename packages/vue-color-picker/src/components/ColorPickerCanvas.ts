@@ -9,7 +9,7 @@ export const ColorPickerCanvas = defineComponent({
   setup(_, { emit, slots }) {
     const divRef = ref<HTMLDivElement | null>(null);
 
-    const move = (e: MouseEvent): void => {
+    const move = (e: MouseEvent | Touch): void => {
       if (divRef.value) {
         const { width, height, left, top } =
           divRef.value.getBoundingClientRect();
@@ -41,11 +41,35 @@ export const ColorPickerCanvas = defineComponent({
       document.addEventListener("mouseup", onMouseUp, false);
     };
 
+    const onTouchStart = (e: TouchEvent): void => {
+      if (e.touches.length !== 1) return;
+
+      e.preventDefault();
+      move(e.touches[0]);
+
+      const onTouchMove = (_e: TouchEvent): void => {
+        move(_e.touches[0]);
+      };
+
+      const onTouchEnd = (_e: TouchEvent): void => {
+        document.removeEventListener("touchmove", onTouchMove, false);
+        document.removeEventListener("touchend", onTouchEnd, false);
+
+        if (_e.changedTouches.length > 0) {
+          move(_e.changedTouches[0]);
+        }
+      };
+
+      document.addEventListener("touchmove", onTouchMove, false);
+      document.addEventListener("touchend", onTouchEnd, false);
+    };
+
     return () =>
       h(
         "div",
         {
           onMousedown,
+          onTouchstart: onTouchStart,
           ref: divRef,
         },
         slots.default?.()
