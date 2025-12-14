@@ -22,7 +22,7 @@
     "vue": ">=3.0.0"
   },
   "devDependencies": {
-    "tsdown": "^0.14.2",
+    "tsdown": "^0.17.4",
     "vite": "^4.2.1",
     "vitest": "^0.29.7",
     "vue": "^3.5.22"
