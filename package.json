@@ -27,7 +27,7 @@
   "homepage": "https://github.com/wattanx/vue-color-picker#readme",
   "devDependencies": {
     "@wattanx/vue-color-picker": "workspace:*",
-    "autoprefixer": "10.4.22",
+    "autoprefixer": "10.4.23",
     "postcss": "8.5.6",
     "tailwindcss": "3.4.3",
     "vitepress": "1.6.4",
