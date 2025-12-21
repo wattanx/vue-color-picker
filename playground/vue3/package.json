@@ -17,6 +17,6 @@
   "dependencies": {
     "@vitejs/plugin-vue": "6.0.3",
     "@wattanx/vue-color-picker": "workspace:*",
-    "vue": "^3.5.25"
+    "vue": "^3.5.26"
   }
 }
